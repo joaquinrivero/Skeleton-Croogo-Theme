@@ -1,0 +1,3 @@
+[submodule "webroot/skeleton"]
+	path = webroot/skeleton
+	url = https://github.com/joaquinrivero/Skeleton.git
