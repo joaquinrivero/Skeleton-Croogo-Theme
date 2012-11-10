@@ -1,10 +1,10 @@
 /*
-* Skeleton V1.2
+* Skeleton V1.1
 * Copyright 2011, Dave Gamache
 * www.getskeleton.com
 * Free to use under the MIT license.
 * http://www.opensource.org/licenses/mit-license.php
-* 6/20/2012
+* 8/17/2011
 */
 
 /* Table of Content
@@ -16,6 +16,608 @@
 
 /* #Site Styles
 ================================================== */
+/*http://www.justbenicestudio.com/studio/websymbols/*/
+@font-face {
+    font-family: 'WebSymbolsRegular';
+    src: url('/uploads/websymbols-regular-webfont.eot');
+    src: url('/uploads/websymbols-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/uploads/websymbols-regular-webfont.woff') format('woff'),
+         url('/uploads/websymbols-regular-webfont.ttf') format('truetype'),
+         url('/uploads/websymbols-regular-webfont.svg#WebSymbolsRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+* { 
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+	box-sizing: border-box; 
+	}
+
+img {
+	max-width: 100%;
+}
+
+.band {
+	background: url(../img/bg_main.png) repeat #f8f8f8;
+	padding: 0 0 14px 0;	
+}
+
+.band.navigation {
+	background: url(../img/stitch_hr.png) left top repeat-x,
+				url(../img/bg_dark.png) repeat left 2px,
+				#343434;	
+	padding: 0;
+	color: #e0e0e0; 
+}
+
+.band.footer {
+	background: url(../img/stitch_large.png) left top repeat-x,
+				url(../img/bg_dark.png) repeat left 2px,
+				#343434;
+	padding: 49px 0 14px 0;			
+	color: #e0e0e0; 
+}
+
+.band.bottom {
+	background: url(../img/stitch_staggered.png) left top repeat-x,
+				url(../img/bg_bottom.png) repeat,
+				#343434;	
+	padding: 28px 0 7px 0;
+	color: #e0e0e0;
+}
+
+/*ie multiple background image fallbacks*/
+.ie .band.navigation {
+	background: url(../img/bg_dark.png) repeat left 2px #343434;
+}
+.ie .band.footer {
+	background: url(../img/bg_dark.png) repeat left 2px #343434;
+}
+.ie .band.bottom {
+	background: url(../img/bg_bottom.png) repeat #343434;
+}
+
+/*navigation*/
+nav.primary ul,
+nav.primary ul li {
+	margin: 0px;
+}
+
+nav.primary select {
+	display: none;
+	width:  100%;
+	height: 28px;
+	margin: 21px 0;
+}
+
+nav.primary ul li {
+	display: inline;
+	float: left;
+	position: relative;
+}
+
+nav.primary ul li a {
+	display: inline-block;
+	line-height: 49px;
+	padding:  0 14px;
+	color: #ebebeb;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight: bold;
+	letter-spacing: 0.08em;
+}
+
+nav.primary ul li a:hover {
+	background: #424242;
+	cursor: pointer;
+}
+
+/*sub menu*/
+nav.primary ul ul {
+	opacity: 0; 
+  	filter: alpha(opacity=0); 
+
+	position: absolute;
+	top:100%;
+	left: 0;
+	z-index: 999999;
+	background: url(../img/bg_bottom.png);
+	
+	height: 0px;
+	overflow: hidden;
+	
+	min-width: 100%;
+	
+	-webkit-transition: opacity 0.4s ease-out;
+	-moz-transition: opacity 0.4s ease-out;
+	-o-transition: opacity 0.4s ease-out;
+	-ms-transition: opacity 0.4s ease-out;
+	transition: opacity 0.4s ease-out;
+	
+	-webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);	
+}
+
+nav.primary ul li span {
+	display: none;
+}
+
+nav.primary ul li:hover ul {
+	opacity: 10; 
+  	filter: alpha(opacity=100); 
+  	
+	height: auto;
+	overflow: auto;
+	
+	display: block;
+}
+
+nav.primary ul ul li {
+	float: none;
+	display: list-item;
+	border-bottom: 1px solid #383737;
+}
+
+nav.primary ul ul li a {
+	display: block;
+	line-height: 35px;
+	text-transform: none;
+	position: relative;
+	z-index: 999999;
+}
+
+nav.primary ul li:hover > a {
+	background: #424242;
+}
+
+/*header*/
+header.main {
+	padding: 35px 10px;
+}
+
+header h1.logo {
+	margin: 10px 0 0 0;
+	float: left;
+}
+
+header h1.logo a {
+	width: 250px;
+	height: 49px;
+	display: block;
+	background: url(../img/sprite.png) no-repeat 0 0;
+	
+	/*http://nicolasgallagher.com/another-css-image-replacement-technique/*/
+	font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
+}
+
+header.main .banner {
+	float: right;
+}
+
+/*images*/
+figure {
+	padding: 6px;
+	border: 1px solid #ededed;
+	background: #ffffff;
+	line-height: 0px;
+}
+
+figcaption {
+	font-size: .75em;
+	text-align: center;
+	padding: 14px 0;
+}
+
+/*blog*/
+h2 {
+	font-size: 35px;
+	line-height: 42px;
+	margin-bottom: 7px;
+}
+
+hr {
+	border: none;
+	border-bottom: 1px dashed #e5e5e5;
+	margin: 14px 0 28px
+}
+
+article.preview {
+
+}
+
+article.preview .breadcrumbs {
+	margin-bottom: 7px;
+}
+
+article.preview .meta {
+	margin-bottom: 7px;
+}
+
+/*forms*/
+
+	/*Glyn Mooney webkit reset 
+	http://www.skidoosh.co.uk/html/how-to-reset-the-webkit-html5search-field-style-with-css/*/
+	input[type=search]::-webkit-search-decoration,
+	input[type=search]::-webkit-search-cancel-button,
+	input[type=search]::-webkit-search-results-button,
+	input[type=search]::-webkit-search-results-decoration {
+	  display: none;
+	}
+	
+	input[type=search] {
+	  -webkit-appearance: textfield;
+	}
+	
+	input[type=search]:focus {
+	outline: none;	
+	}
+	
+	input[type="text"],
+	input[type="search"],
+	input[type="password"],
+	input[type="email"],
+	textarea,
+	select {
+		width: 100%;
+	}
+	
+	.search,
+	.subscribe {
+		margin: 0;
+	}
+	.search input[type=search],
+	.subscribe input[type=email] {
+		width: 70%;
+		float: left;
+		margin: 0;
+	}
+	.search button,
+	.subscribe button {
+		width: 28%;
+		float: right;
+		margin: 0;
+		padding: 7px 10px;
+	}
+
+
+/*fluid video and other embeds - http://www.alistapart.com/articles/creating-intrinsic-ratios-for-video*/
+
+.embed {
+    position: relative;
+    padding: 0px;
+    padding-bottom: 56.25%; /* 16/9 ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.embed iframe,
+.embed object,
+.embed embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+	/*
+	 * jQuery FlexSlider v1.8
+	 * http://flex.madebymufffin.com
+	 *
+	 * Copyright 2011, Tyler Smith
+	 * Free to use under the MIT license.
+	 * http://www.opensource.org/licenses/mit-license.php
+	 */
+	 
+	/* Browser Resets */
+	.flex-container a:active,
+	.flexslider a:active {outline: none;}
+	.slides,
+	.flex-control-nav,
+	.flex-direction-nav {margin: 0; padding: 0; list-style: none;} 
+	
+	/* FlexSlider Necessary Styles
+	*********************************/ 
+	.flexslider {width: 100%; margin: 0; padding: 0;}
+	.flexslider .slides > li {display: none;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+	.flexslider .slides img {max-width: 100%; display: block;}
+	.flex-pauseplay span {text-transform: capitalize;}
+	
+	/* Clearfix for the .slides element */
+	.slides:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;} 
+	html[xmlns] .slides {display: block;} 
+	* html .slides {height: 1%;}
+	
+	/* No JavaScript Fallback */
+	/* If you are not using another script, such as Modernizr, make sure you
+	 * include js that eliminates this class on page load */
+	.no-js .slides > li:first-child {display: block;}
+	
+	/*my flexslider styles*/	
+	.flexslider {
+		margin: 21px 0;
+	}
+	
+	.flex-control-nav {
+		width: 100%;
+		text-align: center;
+	}	
+	
+	.flex-control-nav li {
+		display: inline;
+		margin: 0 5px;
+	}
+	
+	.flex-control-nav li a {
+		display: inline-block;
+		width: 14px;
+		height: 14px;
+		background: #d5d5d5;
+		border: 1px solid #d5d5d5;
+		text-indent: -9999%;
+		cursor: pointer;
+		
+		-webkit-border-radius: 10px;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+	}
+	
+	.flex-control-nav li a.active,
+	.flex-control-nav li a:hover {
+		background: #f1f1f1;
+	}
+	
+/*articles*/
+article.sub header {
+	background: url(../img/diagonal_pale.png) repeat;
+	font-size: 14px;
+	line-height: 14px;
+	margin: 28px 0;
+}
+
+article.subscribe header {
+	margin-top: 0px;
+}
+
+article.sub header h4 {
+	font-weight: bold;
+	color: #999999;
+	font-size: 14px;
+	line-height: 14px;
+	text-transform: uppercase;
+	background: url(../img/bg_main.png) repeat #f8f8f8;
+	display: inline;
+	padding: 0 10px;
+	margin: 0 0 0 14px;
+	letter-spacing: 0.1em;
+	font-family: arial, sans-serif;
+}
+
+/*footer*/
+footer.bottom {
+	font-size: 12px;
+}
+
+.last-credit {
+	text-align: right;
+}
+
+footer a,
+footer a:visited {
+	color: #8f8f8f;
+}
+
+footer a:hover {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+footer h3.logo {
+	margin: 13px 0 21px;
+}
+
+footer h3.logo a {
+	width: 200px;
+	height: 35px;
+	display: block;
+	background: url(../img/sprite.png) no-repeat 0 -50px;
+	text-indent: -9999%;
+}
+
+footer.main header {
+	background: url(../img/diagonal_dark.png) repeat;
+	font-size: 14px;
+	line-height: 14px;
+	margin: 28px 0;
+}
+
+footer.main header h4 {
+	font-weight: bold;
+	color: #ffffff;
+	font-size: 14px;
+	line-height: 14px;
+	text-transform: uppercase;
+	background: url(../img/bg_dark.png) repeat #f8f8f8;
+	display: inline;
+	padding: 0 10px;
+	margin: 0 0 0 14px;
+	letter-spacing: 0.1em;
+	font-family: arial, sans-serif;
+}
+
+/*lists*/
+footer.main li {
+	padding: 21px 0;
+	margin: 0px;
+	background: url(../img/stitch_staggered.png) repeat-x left bottom;
+	}
+	
+footer.main li:first-child {
+	padding-top: 0px;
+}	
+
+footer.main li:last-child {
+	background: none;
+}	
+
+/*flickr*/
+div.flickr img {
+	float: left;
+	max-width: 46%;
+	margin: 2%;
+	padding: 6px;
+	border: 1px solid #ededed;
+	background: #ffffff;
+}
+
+/*sponsors*/
+.sponsors a {
+	float: left;
+	max-width: 46%;
+	margin: 2%;
+}
+
+.sponsors .maxi {
+	display: none;
+}
+
+/*categories*/
+ul.categories {
+	margin: 0;
+}
+ul.categories li {
+	border-bottom: 1px dashed #e5e5e5;
+	margin: 0;
+}
+
+ul.categories li a {
+	text-decoration: none;
+	line-height: 35px;
+	display: block;
+}
+
+ul.categories li a:hover {
+	background: #ffffff;
+}
+
+/*tabs*/
+/*first just fix the border-box stuff*/
+ul.tabs {
+	margin: 0;
+}
+ul.tabs li {
+	position: relative;
+	top: 1px;
+}
+
+ul.tabs li a.active {
+	height: 34px;
+	background: url(../img/bg_main.png);
+}
+
+.tabs-content li {
+	padding: 35px 20px;
+	border: 1px solid #DDD;
+	border-top: none;
+}
+
+/*icons*/
+.icon {
+	font-family: "WebSymbolsRegular";
+	font-size: 28px;
+	line-height: 1em;
+}
+
+.subscribe span {
+	width: 30%;
+	float: left;
+}
+.subscribe p {
+	width: 70%;
+	float: right;
+	margin: 0;
+	font-family: Georgia, serif;
+}
+
+.subscribe em {
+	font-size: 21px;
+	font-style: normal;
+}
+
+
+
+.icon.rss {
+	color: #ef7908;
+}
+
+.icon.twitter {
+	color: #39bae6;
+}
+
+/*pagination*/
+
+.paging {
+	width: 100%;
+	text-align: center;
+	margin: 21px 0 35px 0;
+	color: transparent;
+}
+
+.paging span.current, .paging span a {
+	display: inline-block;
+	line-height: 35px;
+	width: 35px;
+	height: 35px;
+	text-align: center;
+	padding: 0 7px;
+	text-decoration: none;
+	border-bottom: 3px solid #cccccc;
+	font-weight: bold;
+}
+
+.paging span a:hover,
+.paging span.current {
+	background: url(../img/bg_dark.png);
+	border: none;
+	color: #ffffff;
+}
+
+/*Old Nav*/
+nav.pagination ul {
+	width: 100%;
+	text-align: center;
+	margin: 21px 0 35px 0;
+}
+
+
+
+nav.pagination li {
+	display: inline;
+}
+
+nav.pagination li a {
+	display: inline-block;
+	line-height: 35px;
+	width: 35px;
+	height: 35px;
+	text-align: center;
+	padding: 0 7px;
+	text-decoration: none;
+	border-bottom: 3px solid #cccccc;
+	font-weight: bold;
+}
+
+nav.pagination li a:hover,
+nav.pagination li a.selected {
+	background: url(../img/bg_dark.png);
+	border: none;
+	color: #ffffff;
+}
 
 /* #Page Styles
 ================================================== */
@@ -27,16 +629,92 @@
 	@media only screen and (max-width: 959px) {}
 
 	/* Tablet Portrait size to standard 960 (devices and browsers) */
-	@media only screen and (min-width: 768px) and (max-width: 959px) {}
+	@media only screen and (min-width: 768px) and (max-width: 959px) {
+	
+		/*sponsors*/
+		.sponsors {
+			text-align: center;
+		}
+		.sponsors img {
+			float: none;
+			max-width: 100%;
+			margin: 0 0 7px;
+		}
+	
+	}
 
 	/* All Mobile Sizes (devices and browser) */
 	@media only screen and (max-width: 767px) {}
 
 	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
-	@media only screen and (min-width: 480px) and (max-width: 767px) {}
+	@media only screen and (min-width: 480px) and (max-width: 767px) {
+		
+		article.preview .thumbnail {
+			display: none;
+		}
+		
+		footer.bottom p {
+			text-align: center;
+			margin-bottom: 7px;
+		}
+		
+		nav.primary {
+			padding: 21px 0;
+		}
+		
+		nav.primary select {
+			display: block;
+		}
+		
+		nav.primary ul {
+			display: none;
+		}
+		
+		header.main .banner {
+			display: none;
+		}
+	}
 
 	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
-	@media only screen and (max-width: 479px) {}
+	@media only screen and (max-width: 479px) {
+		
+		article.preview .thumbnail {
+			display: none;
+		}
+	
+		/*sponsors*/
+		.sponsors .mini {
+			display: none
+		}
+		.sponsors .maxi {
+			display: block;
+			float: none;
+			max-width: 100%;
+			margin: 0 0 7px;
+		}
+		
+		footer.bottom p {
+			text-align: center;
+			margin-bottom: 7px;
+		}
+		
+		nav.primary {
+			padding: 21px 0;
+		}
+		
+		nav.primary select {
+			display: block;
+		}
+		
+		nav.primary ul {
+			display: none;
+		}
+		
+		header.main .banner {
+			display: none;
+		}
+	
+	}
 
 
 /* #Font-Face
