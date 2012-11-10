@@ -166,8 +166,12 @@
                     </div><!--end ten-->            
             
                     <aside class="six columns">
+
+                        <?php echo $this->Layout->blocks('right'); ?>
                         
                         <div class="sub subscribe clearfix">
+
+
                         
                             <header>
                             
@@ -195,23 +199,7 @@
                         
                         </div><!--end sub subscribe-->  
                         
-                        <div class="sub search">
-                        
-                            <header>
-                            
-                                <h4>Search</h4>
-                            
-                            </header>
-                            
-                            <form class="search clearfix">
-                            
-                                <input type="search" placeholder="eg: Cheese" value="">
-                                
-                                <button type="submit">Search</button>
-                            
-                            </form><!--end search-->
-                        
-                        </div><!--end sub search--> 
+                    
                         
                         <div class="sub sponsors clearfix">
                         
