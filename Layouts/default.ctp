@@ -115,6 +115,7 @@
                             echo $content_for_layout;
                         ?>
                     
+                    
                         <article>
                         
                             <div class="ten columns alpha thumbnail">
@@ -142,12 +143,6 @@
                             <hr />          
                         
                         </article><!--blog post-->
-                    
-                        
-                    
-
-                
-                        
                         <nav class="pagination">
                         
                             <ul>
@@ -161,11 +156,13 @@
                             
                             </ul>
                         
-                        </nav><!--end pagination-->                                             
+                        </nav><!--end pagination-->   
+                    
+                                                                
                     
                     </div><!--end ten-->            
             
-                    <aside class="six columns">
+                    <aside id="right_col" class="six columns">
 
                         <?php echo $this->Layout->blocks('right'); ?>
                         

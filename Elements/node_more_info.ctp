@@ -1,4 +1,5 @@
 <div class="node-more-info">
+	<p class="breadcrumbs"><a href="#">Breadcrumb</a> &gt; <a href="#">trail</a></p>
     <em>
 <?php
 	$type = $types_for_layout[$this->Layout->node('type')];
@@ -18,7 +19,7 @@
 			echo __('Posted in') . ' <i class="icon-book"></i> ' . implode(', ', $nodeTermLinks);
 		}
 	}
-
+/*
 	if ($this->params['action'] != 'view' && $type['Type']['comment_status']) {
 		if (isset($nodeTerms) && count($nodeTerms) > 0) {
 			echo ' | <i class="icon-comment"></i> ';
@@ -34,6 +35,7 @@
 		}
 		echo $this->Html->link($commentCount, $this->Html->url($this->Layout->node('url'), true) . '#comments');
 	}
+*/
 ?>
     </em>
 </div>

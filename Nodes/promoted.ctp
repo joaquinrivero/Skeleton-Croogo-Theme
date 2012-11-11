@@ -11,7 +11,7 @@
 
     <?php
     foreach ($nodes AS $node) { $this->Layout->setNode($node); ?>
-
+    
                         <article id="node-<?php echo $this->Layout->node('id'); ?>" class="node node-type-<?php echo $this->Layout->node('type'); ?>">
                         
                             <div class="ten columns alpha thumbnail">
@@ -20,36 +20,22 @@
                             </div><!--three-->  
                         
                             <div class="ten columns omega">
-                                <small><?php echo $this->Layout->nodeInfo(); ?></small>
-                            
-                                <p class="breadcrumbs"><a href="#">Breadcrumb</a> &gt; <a href="#">trail</a></p>
-                                
-                                <p class="meta">Posted by <a href="#">Charlie</a> 1 hour ago <a href="#">30 comments</a></p>
-                                
+                                <p class="meta"><?php echo $this->Layout->nodeInfo(); ?></p>
+                        
                                 <?php
                                 echo $this->Layout->nodeExcerpt();
                                 ?>
+                                <?php
+                                echo $this->Layout->nodeMoreInfo();
+                                ?>
                                                     
-                            </div><!--seven-->  
+                            </div><!--seven--> 
                             
                             <hr />          
                         
                         </article><!--blog post-->
 
-        <div >
-            <h3> 
-                <small><?php echo $this->Layout->nodeInfo(); ?></small>
-            </h3>
-           <div class="well-small">
-
-           </div>
-            <?php
-            echo $this->Layout->nodeMoreInfo();
-            ?>
-        </div>
-        <?php
-    }
-    ?>
+        <?php } ?>
 
     <div class="paging"><?php echo $this->Paginator->numbers(); ?></div>
 </div>
