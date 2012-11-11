@@ -62,35 +62,110 @@ class CustomHelper extends Helper {
         $_options = array();
         $options = array_merge($_options, $options);
 
+        $total = count($terms);
+        $rest = $total % 2;
         $output = '';
-        foreach ($terms as $term) {
-            if ($options['link']) {
-                $termAttr = array(
-                    'id' => 'term-' . $term['Term']['id'],
-                );
-                $termOutput = $this->Html->link($term['Term']['title'], array(
-                    'plugin' => $options['plugin'],
-                    'controller' => $options['controller'],
-                    'action' => $options['action'],
-                    'type' => $options['type'],
-                    'slug' => $term['Term']['slug'],
-                ), $termAttr);
-            } else {
-                $termOutput = $term['Term']['title'];
-            }
-            if (isset($term['children']) && count($term['children']) > 0) {
-                $termOutput .= $this->nestedTerms($term['children'], $options, $depth + 1);
-            }
-            $termOutput = $this->Html->tag('li', $termOutput);
-            $output .= $termOutput;
-        }
-        if ($output != null) {
-            $output = $this->Html->tag($options['tag'], $output, $options['tagAttributes']);
+        $left_list = '';
+        $right_list = '';
+        $array_counter = 0;
+
+
+        if($rest === 0){
+
+            $left_list_total = $total / 2;
+            $right_list_total = $total / 2;
+
+        } else {
+
+            $left_list_total =  round($total / 2) - 1;
+            $right_list_total =  $total - 1;
+
         }
 
+            // Left
+
+            for ($i = 0; $i <= $left_list_total; $i++) {
+
+                if ($options['link']) {
+
+                    $termAttr_left = array(
+                        'id' => 'term-' . $terms[$i]['Term']['id'],
+                    );
+
+                    $termOutput_left = $this->Html->link($terms[$i]['Term']['title'], array(
+                        'plugin' => $options['plugin'],
+                        'controller' => $options['controller'],
+                        'action' => $options['action'],
+                        'type' => $options['type'],
+                        'slug' => $terms[$i]['Term']['slug'],
+                        ), $termAttr_left);
+
+                }
+
+                else {
+                    $termOutput_left = $terms[$i]['Term']['title'];
+                }
+                /*
+                if (isset($terms[$i]['children']) && count($terms[$i]['children']) > 0) {
+                    $termOutput .= $this->Custom->nestedTerms($terms[$i]['children'], $options, $depth + 1);
+                }
+                */
+                $termOutput_left = $this->Html->tag('li', $termOutput_left);
+                $left_list .= $termOutput_left;
+
+                $array_counter++;
+            }
+
+            if ($left_list != null) {
+                $left_list = $this->Html->tag('ul', $left_list, $options['tagAttributes']);
+                $left_list = $this->Html->tag('div', $left_list, array('class' => 'three columns alpha',));
+            }
+
+
+            // Right
+
+            for ($i = $array_counter; $i <= $right_list_total; $i++) {
+
+                if ($options['link']) {
+
+                    $termAttr_right = array(
+                        'id' => 'term-' . $terms[$i]['Term']['id'],
+                    );
+
+                    $termOutput_right = $this->Html->link($terms[$i]['Term']['title'], array(
+                        'plugin' => $options['plugin'],
+                        'controller' => $options['controller'],
+                        'action' => $options['action'],
+                        'type' => $options['type'],
+                        'slug' => $terms[$i]['Term']['slug'],
+                        ), $termAttr_right);
+
+                }
+
+                else {
+                    $termOutput_right = $terms[$i]['Term']['title'];
+                }
+                /*
+                if (isset($terms[$i]['children']) && count($terms[$i]['children']) > 0) {
+                    $termOutput .= $this->Custom->nestedTerms($terms[$i]['children'], $options, $depth + 1);
+                }
+                */
+                $termOutput_right = $this->Html->tag('li', $termOutput_right);
+                $right_list .= $termOutput_right;
+
+                $array_counter++;
+            }
+
+            if ($right_list != null) {
+                $right_list = $this->Html->tag('ul', $right_list, $options['tagAttributes']);
+                $right_list = $this->Html->tag('div', $right_list, array('class' => 'three columns alpha',));
+            }
+
+        $output = $left_list . $right_list;
+        
         return $output;
     }
-    
+
 
     /**
      * Nested Links
