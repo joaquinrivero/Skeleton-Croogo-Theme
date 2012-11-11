@@ -1,7 +1,8 @@
-<span class="node-info">
+<div class="node-info">
+
 <?php
 	$type = $types_for_layout[$this->Layout->node('type')];
-        echo "<em>";
+        echo "<p class='meta'>";
 	if ($type['Type']['format_show_author'] || $type['Type']['format_show_date']) {
 		__('Posted');
 	}
@@ -20,6 +21,6 @@
 		echo ' ' . __('on') . ' <i class="icon-time"></i> ';
 		echo $this->Html->tag('span', $this->Time->format(Configure::read('Reading.date_time_format'), $this->Layout->node('created'), null, Configure::read('Site.timezone')), array('class' => 'date'));
 	}
-        echo "</em>";
+        echo "</p>";
 ?>
-</span>
+</siv>
