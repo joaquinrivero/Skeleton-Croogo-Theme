@@ -11,10 +11,9 @@
     <header>
         <h4><?php echo $b['title']; ?></h4>
     </header>
+    <?php echo $this->Layout->filter($b['body']); ?>
 <?php } ?>
 
-            <p>
-<?php echo $this->Layout->filter($b['body']); ?>
-            </p>
+            
 </div>
 
