@@ -487,23 +487,24 @@ div.flickr img {
 }
 
 /*categories*/
-ul.categories {
+.vocabulary ul, .sub.block ul{
 	margin: 0;
 }
-ul.categories li {
+.vocabulary ul li, .sub.block ul li {
 	border-bottom: 1px dashed #e5e5e5;
 	margin: 0;
 }
 
-ul.categories li a {
+.vocabulary ul li a, .sub.block ul li a {
 	text-decoration: none;
 	line-height: 35px;
 	display: block;
 }
 
-ul.categories li a:hover {
+.vocabulary ul li a:hover, .sub.block ul li a:hover{
 	background: #ffffff;
 }
+
 
 /*tabs*/
 /*first just fix the border-box stuff*/
