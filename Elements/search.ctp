@@ -6,12 +6,9 @@ if ($block['Block']['class'] != null) {
 }
 ?>
 <div id="block-<?php echo $b['id']; ?>" class="sub search <?php echo $class; ?>">
-<?php if ($b['show_title'] == 1) { ?>
-    <header>
-        <h4><?php echo $b['title']; ?></h4>
-    </header>
-<?php } ?>
-                            
+    
+    <p><?php echo $this->Layout->filter($b['body']); ?></p>
+
     <form id="searchform" method="post" class="search clearfix" action="javascript: document.location.href=''+Croogo.basePath+'search/q:'+encodeURI($('#searchform #q').val());">
         
             <?php

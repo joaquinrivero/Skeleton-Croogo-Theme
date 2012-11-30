@@ -16,7 +16,7 @@
 					'slug' => $termSlug,
 				));
 			}
-			echo __('Posted in') . ' <i class="icon-book"></i> ' . implode(', ', $nodeTermLinks);
+			echo implode(', ', $nodeTermLinks);
 		}
 	}
 /*

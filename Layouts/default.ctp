@@ -52,11 +52,7 @@
         
                 <div class="sixteen columns">
                 
-                    <h1 class="logo"><a href=""><?php echo Configure::read('Site.title'); ?></h1>
-                    
-                    <!--http://themeforest.net/wiki/referral/basics-referral/banners-and-logos/-->
-                    <a class="banner" href="#"> <?php echo $this->Html->image("banners/pd_468x60_v4.gif"); ?></a>
-                
+                    <h1 class="title"><?php echo $this->Html->link(Configure::read('Site.title'), '/'); ?><br><small><?php echo Configure::read('Site.tagline'); ?></h1>
                 </div>
                 
             </header><!--end container-->
@@ -79,6 +75,7 @@
         
                 <div class="container">
             
+<?php /*
                     <div class="sixteen columns">
                         
                         <div class="flexslider">
@@ -108,7 +105,8 @@
                         </div><!--end flexslider-->             
                     
                     </div>
-                        
+
+ */?>                       
                     <div class="ten columns">
                         <?php
                             echo $this->Layout->sessionFlash();
@@ -166,55 +164,9 @@
 
                         <?php echo $this->Layout->blocks('right'); ?>
                         
-                        <div class="sub subscribe clearfix">
-
-
-                        
-                            <header>
-                            
-                                <h4>Subscribe</h4>
-                            
-                            </header>
-                            
-                            <div class="three columns alpha">
-                            
-                                <span class="icon rss">r</span>
-                                
-                                <p><em>18,857</em><br />
-                                subscribers</p>
-                            
-                            </div><!--end alpha-->
-                            
-                            <div class="three columns omega">
-                            
-                                <span class="icon twitter">t</span>
-                                
-                                <p><em>13,756</em><br />
-                                followers</p>
-                            
-                            </div><!--end omega-->
-                        
-                        </div><!--end sub subscribe-->  
                         
                     
-                        
-                        <div class="sub sponsors clearfix">
-                        
-                            <header>
-                            
-                                <h4>Sponsors</h4>
-                            
-                            </header>
-                            
-                            <!--http://themeforest.net/wiki/referral/basics-referral/banners-and-logos/-->
-                            <a class="mini" href="#"><?php echo $this->Html->image("banners/cc_260x120_v4.gif"); ?></a>
-                            <a class="mini" href="#"><?php echo $this->Html->image("banners/pd_260x120_v4.gif"); ?></a>
-                            <a class="mini" href="#"><?php echo $this->Html->image("banners/tf_260x120_v2.gif"); ?></a>
-                            <a class="mini" href="#"><?php echo $this->Html->image("banners/vh_260x120_v1.gif"); ?></a>
-                            
-                            <a class="maxi" href="#"><?php echo $this->Html->image("banners/gr_300x250_v3.gif"); ?><</a>
-                            <a class="maxi" href="#"><?php echo $this->Html->image("banners/vh_260x120_v1.gif"); ?></a>
-                        </div><!--end sub sponsors-->   
+                    
                                         
                         <div class="sub popular">
                         
@@ -236,85 +188,7 @@
                                 <li id="tags">The tabs work like a charm even on mobile devices.</li>
                             </ul>
                                                                 
-                        </div><!--end sub popular-->    
-                        
-                        <div class="sub news">
-                        
-                            <header>
-                            
-                                <h4>Magazine News</h4>
-                            
-                            </header>
-                            
-                            <form class="subscribe clearfix">
-                            
-                                <input type="email" placeholder="you@domain" value="">
-                                
-                                <button type="submit">Subscribe</button>
-                            
-                            </form><!--end search-->
-                                                                
-                        </div><!--end sub news-->
-                        
-                        <div class="sub categories clearfix">
-                        
-                            <header>
-                            
-                                <h4>Categories</h4>
-                            
-                            </header>
-                            
-                            <div class="three columns alpha">
-                            
-                                <ul class="categories">
-                                
-                                    <li><a href="#">Facebook</a></li>
-                                    <li><a href="#">Twitter</a></li>
-                                    <li><a href="#">YouTube</a></li>
-                                
-                                </ul><!--end cats-->
-                            
-                            </div><!--end alpha-->
-                            
-                            <div class="three columns omega">
-                            
-                                <ul class="categories">
-                                
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">Contact</a></li>
-                                    <li><a href="#">Write for us</a></li>
-                                
-                                </ul><!--end cats-->
-                            
-                            </div><!--end omega-->
-                                                                
-                        </div><!--end sub cats-->   
-                        
-                        <div class="sub video">
-                        
-                            <header>
-                            
-                                <h4>Video of the Week</h4>
-                            
-                            </header>
-                            
-                            <figure>
-                            
-                                <div class="embed">
-                                <!--
-                                <iframe src="http://player.vimeo.com/video/22679618" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>                    
-                                -->
-                                </div><!--end embed-->
-                                
-                                <figcaption>
-                                
-                                    <a href="http://vimeo.com/22679618">Apache</a> from <a href="http://vimeo.com/oneedo">oneedo</a>
-                                
-                                </figcaption>
-                            
-                            </figure>
-                                                                                    
-                        </div><!--end sub video-->              
+                        </div><!--end sub popular-->              
                     
                     </aside><!--end six-->
                     

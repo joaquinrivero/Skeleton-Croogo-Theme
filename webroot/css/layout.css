@@ -28,7 +28,9 @@
     font-style: normal;
 
 }
-
+body{
+font:18px/21px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 * { 
 	-moz-box-sizing: border-box; 
 	-webkit-box-sizing: border-box; 
@@ -38,7 +40,20 @@
 img {
 	max-width: 100%;
 }
+h1.title small{ 
+	font-size: 20px;
+}
 
+a, a:visited {
+	text-decoration: none;
+	color: #CF5153;
+}
+a:hover{
+	color: #333;
+}
+article.node h2 a{
+	color: #333;
+}
 .band {
 	background: url(../img/bg_main.png) repeat #f8f8f8;
 	padding: 0 0 14px 0;	
@@ -579,6 +594,7 @@ ul.tabs li a.active {
 	text-decoration: none;
 	border-bottom: 3px solid #cccccc;
 	font-weight: bold;
+	color: #333;
 }
 
 .paging span a:hover,
@@ -611,13 +627,14 @@ nav.pagination li a {
 	text-decoration: none;
 	border-bottom: 3px solid #cccccc;
 	font-weight: bold;
+	color: #333;
 }
 
 nav.pagination li a:hover,
 nav.pagination li a.selected {
 	background: url(../img/bg_dark.png);
 	border: none;
-	color: #ffffff;
+	color: #fff;
 }
 
 /* #Page Styles
