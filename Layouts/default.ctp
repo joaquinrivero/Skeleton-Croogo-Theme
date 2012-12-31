@@ -36,10 +36,9 @@
 
     <!-- Favicons
     ================================================== -->
-    <link rel="shortcut icon" href="/img/favicon.ico">
-    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-touch-icon-114x114.png">
+<?php
+    echo $this->Html->meta('icon');
+?>
 
 </head>
 <body>
@@ -52,7 +51,8 @@
         
                 <div class="sixteen columns">
                 
-                    <h1 class="title"><?php echo $this->Html->link(Configure::read('Site.title'), '/'); ?><br><small><?php echo Configure::read('Site.tagline'); ?></h1>
+                    <h1 class="title"><?php echo $this->Html->link(Configure::read('Site.title'), '/'); ?>
+                        <br><small><?php echo Configure::read('Site.tagline'); ?></small></h1>
                 </div>
                 
             </header><!--end container-->
@@ -113,7 +113,7 @@
                             echo $content_for_layout;
                         ?>
                     
-                    
+                        <!--
                         <article>
                         
                             <div class="ten columns alpha thumbnail">
@@ -126,7 +126,7 @@
                                 </figure>
 
                             
-                            </div><!--three-->  
+                            </div> 
                         
                             <div class="seven columns omega">
                             
@@ -136,11 +136,13 @@
                                 
                                 <p>A few years ago, news organizations were unsure about social. Journalists were apprehensive to create Twitter accounts and media companies questioned whether a branded Facebook fan page was necessary.</p>
                                                     
-                            </div><!--seven-->  
+                            </div> 
                             
                             <hr />          
                         
-                        </article><!--blog post-->
+                        </article>
+                        -->
+                        <!--
                         <nav class="pagination">
                         
                             <ul>
@@ -154,7 +156,8 @@
                             
                             </ul>
                         
-                        </nav><!--end pagination-->   
+                        </nav>
+                        --> 
                     
                                                                 
                     
@@ -162,12 +165,8 @@
             
                     <aside id="right_col" class="six columns">
 
-                        <?php echo $this->Layout->blocks('right'); ?>
-                        
-                        
-                    
-                    
-                                        
+                        <?php echo $this->Custom->blocks('right'); ?>
+<!--                    
                         <div class="sub popular">
                         
                             <header>
@@ -188,7 +187,8 @@
                                 <li id="tags">The tabs work like a charm even on mobile devices.</li>
                             </ul>
                                                                 
-                        </div><!--end sub popular-->              
+                        </div>
+-->          
                     
                     </aside><!--end six-->
                     
@@ -199,7 +199,9 @@
         <div class="band footer">   
         
             <footer class="container main">
-            
+
+                <?php echo $this->Custom->blocks('footer'); ?>
+                <!--
                 <div class="four columns">
                 
                     <h3 class="logo"><a href="#">Magazine</a></h3>
@@ -210,8 +212,9 @@
                     
                     <p>Our mission is to serve our clients big or small with the same passion, integrity, loyalty and effectiveness</p>
                     
-                </div><!--end four-->
-            
+                </div>
+                -->
+                
                 <div class="four columns">
                         
                     <header>
@@ -220,34 +223,10 @@
                     
                     <div class="tweet"></div>
                     
-                </div><!--end four-->
+                </div>
+                
             
-                <div class="four columns">
-                        
-                    <header>
-                        <h4>Recent Posts</h4>
-                    </header>
-                        
-                    <ul>
-                    
-                        <li>TVGuide.com Watchlist Predicts Fall TV Shows Success</li>               
-                        <li>7 Ways to Create a Memorable Customer Experience With Social</li>               
-                        <li>Apple Gives Its Key Execs $400 Million in Bonuses</li>              
-                        <li>How 5 Tech Giants Are Giving Back to Education</li>                     
-                    
-                    </ul>
-                        
-                </div><!--end four-->
-            
-                <div class="four columns">
-                        
-                    <header>
-                        <h4>Flickr</h4>
-                    </header>
-                    
-                    <div class="flickr"></div>  
-                        
-                </div><!--end four-->           
+               
         
             </footer><!-- container -->
         
@@ -258,11 +237,11 @@
             <footer class="container">      
             
                 <div class="eight columns first-credit">
-                    <p>Copyright &copy; 2012 <a href="#">Magazine</a> All Rights Reserved.</p>
+                    <p>Copyright &copy; 2012 <a href="#"><?php echo Configure::read('Site.title'); ?></a> All Rights Reserved.</p>
                 </div><!--end eight-->
             
                 <div class="eight columns last-credit">
-                    <p>Powered by Webdesigntuts+ - Designed &amp; Developed By <a href="#">Mahdi El Hanafi</a>.</p>     
+                    <p></p>     
                 </div><!--end eight-->
         
             </footer><!-- container -->
@@ -280,7 +259,6 @@
         echo $this->Html->script(array(
             'jquery',
             'jquery.flexslider',
-            'jquery.flickrush',
             'jquery.tweet',
             'tabs',
             'whatever'
