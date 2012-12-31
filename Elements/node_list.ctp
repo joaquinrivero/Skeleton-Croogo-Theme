@@ -7,19 +7,43 @@
 	    $left_list = '';
 	    $right_list = '';
 	    $array_counter = 0;
+        $region_alias = $block['region_alias'];
 
-	    if($rest === 0){
+        if($region_alias == "footer"){
+            echo "<ul>";
+            foreach ($nodesList AS $n) {
+                if ($options['link']) {
+                    echo '<li>';
+                    echo $this->Html->link($n['Node']['title'], array(
+                        'plugin' => $options['plugin'],
+                        'controller' => $options['controller'],
+                        'action' => $options['action'],
+                        'type' => $n['Node']['type'],
+                        'slug' => $n['Node']['slug'],
+                    ));
+                    echo '</li>';
+                } else {
+                    echo '<li>' . $n['Node']['title'] . '</li>';
+                }
+            }
+            echo "</ul>";
 
-	        $left_list_total = $total / 2;
-	        $right_list_total = $total / 2;
+        }
+        else{
 
-	    } else {
+            if($rest === 0){
 
-	        $left_list_total =  round($total / 2) - 1;
-	        $right_list_total =  $total - 1;
+                $left_list_total = $total / 2;
+                $right_list_total = $total / 2;
 
-	    }
+            } else {
 
+                $left_list_total =  round($total / 2) - 1;
+                $right_list_total =  $total - 1;
+
+            }
+
+        
            // Left
 
             for ($i = 0; $i <= $left_list_total; $i++) {
@@ -27,11 +51,11 @@
                 if ($options['link']) {
 
                     $termOutput_left = $this->Html->link($terms[$i]['Node']['title'], array(
-						'plugin' => $options['plugin'],
-						'controller' => $options['controller'],
-						'action' => $options['action'],
-						'type' => $terms[$i]['Node']['type'],
-						'slug' => $terms[$i]['Node']['slug'],
+                        'plugin' => $options['plugin'],
+                        'controller' => $options['controller'],
+                        'action' => $options['action'],
+                        'type' => $terms[$i]['Node']['type'],
+                        'slug' => $terms[$i]['Node']['slug'],
                         ));
 
                 }
@@ -55,19 +79,18 @@
                 $left_list = $this->Html->tag('div', $left_list, array('class' => 'three columns alpha',));
             }
 
-
-            // Right
+           // Right
 
             for ($i = $array_counter; $i <= $right_list_total; $i++) {
 
                 if ($options['link']) {
 
                     $termOutput_right = $this->Html->link($terms[$i]['Node']['title'], array(
-						'plugin' => $options['plugin'],
-						'controller' => $options['controller'],
-						'action' => $options['action'],
-						'type' => $terms[$i]['Node']['type'],
-						'slug' => $terms[$i]['Node']['slug'],
+                        'plugin' => $options['plugin'],
+                        'controller' => $options['controller'],
+                        'action' => $options['action'],
+                        'type' => $terms[$i]['Node']['type'],
+                        'slug' => $terms[$i]['Node']['slug'],
                         ));
 
                 }
@@ -91,9 +114,13 @@
                 $right_list = $this->Html->tag('div', $right_list, array('class' => 'three columns alpha',));
             }
 
-        $output = $left_list . $right_list;
+            $output = $left_list . $right_list;
 
-        echo $output;
+            echo $output;
+
+        }
+
+        
 	?>
 
 </div>
