@@ -9,16 +9,6 @@ $(document).ready(function() {
 });
 
 
-//Hook up flickr feed
-
-$(document).ready(function() {
-	$('div.flickr').flickrush({
-		limit:6,
-		id:'44499772@N06',
-		random:true
-	}); 
-});
-
 //Hook up the flexslider
 
 $(document).ready(function() {
