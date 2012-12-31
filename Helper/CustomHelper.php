@@ -26,6 +26,8 @@ class CustomHelper extends Helper {
         'Layout',
     );
 
+
+
     public function menu($menuAlias, $options = array()) {
         $_options = array(
             'tag' => 'ul',
@@ -48,6 +50,91 @@ class CustomHelper extends Helper {
             'menu' => $menu,
             'options' => $options,
                 ));
+        return $output;
+    }
+
+
+/**
+ * Region is empty
+ *
+ * returns true if Region has no Blocks.
+ *
+ * @param string $regionAlias Region alias
+ * @return boolean
+ */
+    public function regionIsEmpty($regionAlias) {
+        if (isset($this->_View->viewVars['blocks_for_layout'][$regionAlias]) &&
+            count($this->_View->viewVars['blocks_for_layout'][$regionAlias]) > 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public function wtf() {
+        $croogo = array();
+        if (isset($this->params['locale'])) {
+            $croogo['basePath'] = Router::url('/' . $this->params['locale'] . '/');
+        } else {
+            $croogo['basePath'] = Router::url('/');
+        }
+        $croogo['params'] = array(
+            'controller' => $this->params['controller'],
+            'action' => $this->params['action'],
+            'named' => $this->params['named'],
+        );
+        if (is_array(Configure::read('Js'))) {
+            $croogo = Set::merge($croogo, Configure::read('Js'));
+        }
+        return $this->Html->scriptBlock('var Croogo = ' . $this->Js->object($croogo) . ';');
+    }
+
+/**
+ * Show Blocks for a particular Region
+ *
+ * @param string $regionAlias Region alias
+ * @param array $options
+ * @return string
+ */
+    public function blocks($regionAlias, $options = array()) {
+        $_options = array();
+        $options = array_merge($_options, $options);
+        $region_alias = array('region_alias' => $regionAlias );
+        
+        $output = '';
+        if (!$this->regionIsEmpty($regionAlias)) {
+            $blocks = $this->_View->viewVars['blocks_for_layout'][$regionAlias];
+            foreach ($blocks as $block) {
+                $block = array_merge($region_alias, $block);
+                $plugin = false;
+
+                if ($block['Block']['element'] != null) {
+                    if (strstr($block['Block']['element'], '.')) {
+                        $pluginElement = explode('.', $block['Block']['element']);
+                        $plugin  = $pluginElement[0];
+                        $element = $pluginElement[1];
+                    } else {
+                        $element = $block['Block']['element'];
+                    }
+                } else {
+                    $element = 'block';
+                }
+                if ($plugin) {
+                    $blockOutput = $this->_View->element($element, array('block' => $block), array('plugin' => $plugin));
+                } else {
+                    $blockOutput = $this->_View->element($element, array('block' => $block));
+                }
+                $enclosure = isset($block['Params']['enclosure']) ? $block['Params']['enclosure'] === "true" : true;
+                if ($element != 'block' && $enclosure) {
+                    $block['Block']['body'] = $blockOutput;
+                    $block['Block']['element'] = null;
+                    $output .= $this->_View->element('block', array('block' => $block));
+                } else {
+                    $output .= $blockOutput;
+                }
+            }
+        }
+
         return $output;
     }
 
