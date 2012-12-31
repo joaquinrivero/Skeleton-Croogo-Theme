@@ -16,20 +16,16 @@
 
 /* #Site Styles
 ================================================== */
-/*http://www.justbenicestudio.com/studio/websymbols/*/
-@font-face {
-    font-family: 'WebSymbolsRegular';
-    src: url('/uploads/websymbols-regular-webfont.eot');
-    src: url('/uploads/websymbols-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/uploads/websymbols-regular-webfont.woff') format('woff'),
-         url('/uploads/websymbols-regular-webfont.ttf') format('truetype'),
-         url('/uploads/websymbols-regular-webfont.svg#WebSymbolsRegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
 
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+
+/* Fonts */
+h1, h2, h3, h4, h5, h6, body{
+	font-family: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 body{
-font:18px/21px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font:18px/21px;
+	text-rendering: auto;
 }
 * { 
 	-moz-box-sizing: border-box; 
@@ -41,7 +37,7 @@ img {
 	max-width: 100%;
 }
 h1.title small{ 
-	font-size: 20px;
+	font-size: 60%;
 }
 
 a, a:visited {
@@ -410,7 +406,6 @@ article.sub header h4 {
 	padding: 0 10px;
 	margin: 0 0 0 14px;
 	letter-spacing: 0.1em;
-	font-family: arial, sans-serif;
 }
 
 /*footer*/
@@ -462,12 +457,13 @@ footer.main header h4 {
 	padding: 0 10px;
 	margin: 0 0 0 14px;
 	letter-spacing: 0.1em;
-	font-family: arial, sans-serif;
+	font-family: "Droid Sans",arial, sans-serif;
 }
 
 /*lists*/
 footer.main li {
-	padding: 21px 0;
+	list-style: none;
+	padding: 15px 0;
 	margin: 0px;
 	background: url(../img/stitch_staggered.png) repeat-x left bottom;
 	}
@@ -477,6 +473,24 @@ footer.main li:first-child {
 }	
 
 footer.main li:last-child {
+	background: none;
+}
+footer.main .vocabulary ul, footer.main .sub.block ul{
+	margin: 0;
+}
+footer.main .vocabulary ul li, footer.main .sub.block ul li {
+	border: none;
+	margin: 0;
+	padding-bottom: 10px;
+}
+
+footer.main .vocabulary ul li a, footer.main .sub.block ul li a {
+	text-decoration: none;
+	line-height: 35px;
+	display: block;
+}
+
+footer.main .vocabulary ul li a:hover, footer.main .sub.block ul li a:hover{
 	background: none;
 }	
 
